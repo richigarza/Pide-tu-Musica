@@ -2,27 +2,27 @@
 /////////////////////////////
 // Event.php
 // Autor: Richi Garza
-// Fecha: 07-feb-2017
+// Fecha: 09-feb-2017
 ////////////////////////////
 	class Event {
-		private $id;
+		private $idEvent;
 		private $eventName;
-		private $venue;
-		private $userHoster;
-		private $band;
+		private $idVenue;
+		private $userName;
+		private $idBand;
 		private $votes;
 		private $votesReached;
-		private $createDate;
+		private $createdDate;
 		private $lastUpdate;
 	
-		public function __construct($eventName, $venue, $userHoster, $band, $votes, $votesReached, $createDate, $lastUpdate){
+		public function __construct($eventName, $idVenue, $userName, $idBand, $votes, $votesReached, $createdDate, $lastUpdate){
 			$this->eventName = $eventName;
-			$this->venue = $venue;
-			$this->userHoster = $userHoster;
-			$this->band = $band;
+			$this->idVenue = $idVenue;
+			$this->userName = $userName;
+			$this->idBand = $idBand;
 			$this->votes = $votes;
 			$this->votesReached = $votesReached;
-			$this->createDate = $createDate;
+			$this->createdDate = $createdDate;
 			$this->lastUpdate = $lastUpdate;
 		}
 
@@ -30,16 +30,16 @@
 			return $this->eventName;
 		}
 
-		public function getVenue(){
-			return $this->venue;
+		public function getIdVenue(){
+			return $this->idVenue;
 		}
 
-		public function getUserHoster(){
-			return $this->userHoster;
+		public function getUserName(){
+			return $this->userName;
 		}
 
-		public function getBand(){
-			return $this->band;
+		public function getIdBand(){
+			return $this->idBand;
 		}
 
 		public function getVotes(){
@@ -50,8 +50,8 @@
 			return $this->votesReached;
 		}
 
-		public function getCreateEvent(){
-			return $this->createDate;
+		public function getCreatedDate(){
+			return $this->createdDate;
 		}
 
 		public function getLastUpdate(){
