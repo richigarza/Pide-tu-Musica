@@ -2,10 +2,10 @@
 /////////////////////////////
 // User.php
 // Autor: Richi Garza
-// Fecha: 07-feb-2017
+// Fecha: 09-feb-2017
 ////////////////////////////
 	class User {
-		private $id;
+		private $idUser;
 		private $firstName;
 		private $lastName;
 		private $userName;
@@ -14,16 +14,17 @@
 		private $location;
 		private $userType;
 		private $registerDate;
+		private $createdDate;
 		private $lastUpdate;
 
-		public function __construct($firstName, $lastName, $userName, $email, $location, $userType, $registerDate, $lastUpdate){
+		public function __construct($firstName, $lastName, $userName, $email, $location, $userType, $createdDate, $lastUpdate){
 			$this->firstName = $firstName;
 			$this->lastName = $lastName;
 			$this->userName = $userName;
 			$this->email = $email;
 			$this->location = $location;
 			$this->userType = $userType;
-			$this->registerDate = $registerDate;
+			$this->createdDate = $createdDate;
 			$this->lastUpdate = $lastUpdate;
 		}
 
@@ -59,8 +60,8 @@
 			return $this->userType;
 		}
 
-		function getRegisterDate(){
-			return $this->registerDate;
+		function getCreatedDate(){
+			return $this->createdDate;
 		}
 
 		function getLastUpdate(){
