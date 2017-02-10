@@ -2,17 +2,19 @@
 /////////////////////////////
 // Band.php
 // Autor: Richi Garza
-// Fecha: 07-feb-2017
+// Fecha: 09-feb-2017
 ////////////////////////////
 	class Band {
-		private $id;
+		private $idBand;
 		private $bandName;
 		private $bandGenre;
+		private $createdDate;
 		private $lastUpdate;
 
 		public function __construct(){
 			$this->bandName = $bandName;
 			$this->bandGenre = $bandGenre;
+			$this->createdDate = $createdDate;
 			$this->lastUpdate = $lastUpdate;
 		}
 
@@ -22,6 +24,10 @@
 
 		public function getBandGenre(){
 			return $this->bandGenre;
+		}
+
+		public function getCreatedDate(){
+			return $this->createdDate;
 		}
 
 		public function getLastUpdate(){
