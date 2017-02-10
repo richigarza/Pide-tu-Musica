@@ -13,7 +13,6 @@
 		private $email;
 		private $location;
 		private $userType;
-		private $registerDate;
 		private $createdDate;
 		private $lastUpdate;
 
