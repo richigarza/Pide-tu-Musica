@@ -2,17 +2,19 @@
 /////////////////////////////
 // Venue.php
 // Autor: Richi Garza
-// Fecha: 07-feb-2017
+// Fecha: 09-feb-2017
 ////////////////////////////
 	class Venue {
-		private $id;
+		private $idVenue;
 		private $venueName;
 		private $location;
+		private $createdDate;
 		private $lastUpdate;
 
-		public function __construct($venueName, $location, $lastUpdate){
+		public function __construct($venueName, $location, $createdDate, $lastUpdate){
 			$this->venueName = $venueName;
 			$this->location = $location;
+			$this->createdDate = $createdDate;
 			$this->lastUpdate = $lastUpdate;
 		}
 
@@ -22,6 +24,10 @@
 
 		public function getLocation(){
 			return $this->location;
+		}
+
+		public function getCreatedDate(){
+			return $this->createdDate;
 		}
 
 		public function getLastUpdate(){
