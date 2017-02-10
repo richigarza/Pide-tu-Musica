@@ -46,9 +46,9 @@
 				type: "post",
 				success: function(response){
 					console.log(response.success);
+					$("#myModal").modal("hide");
 				}
-			});
-			$("#myModal").modal("hide");
+			});			
 		});
 		</script>
 	</body>
