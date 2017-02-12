@@ -1,8 +1,6 @@
---/////////////////////////////
---// PTM_SCHEMA.sql
---// Autor: Richi Garza
---// Fecha: 09-feb-2017
---////////////////////////////
+-- PTM_SCHEMA.sql
+-- Autor: Richi Garza
+-- Fecha: 09-feb-2017
 
 GRANT ALL PRIVILEGES ON *.* 'ptmUser'@'localhost' IDENTIFIED BY 'ptmUser' WITH GRANT OPTION;
 COMMIT;
@@ -62,11 +60,26 @@ CREATE TABLE dbPTM.Event(
 	createdDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT "Fecha de creación del registro",
 	lastUpdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT "Fecha de la última actualización",
 	KEY k_Event_Venue_KEY(idVenue),
-	KET k_Event_User_KEY(idUser),
+	KEY k_Event_User_KEY(idUser),
 	KEY k_Event_Banda_KEY(idBand),
 	CONSTRAINT fk_Event_Venue FOREIGN KEY (idVenue) REFERENCES dbPTM.Venue(idVenue),
-	CONSTRAINT fk_Event_User FOREIGN KEY (idUser) REFERENCES dbPTM.Venue(idUser),
+	CONSTRAINT fk_Event_User FOREIGN KEY (idUser) REFERENCES dbPTM.User(idUser),
 	CONSTRAINT fk_Event_Band FOREIGN KEY (idBand) REFERENCES dbPTM.Band(idBand)
 )DEFAULT CHARSET=utf8 COMMENT "Tabla de Eventos";
+
+-- Tabla de Relacion de votos
+DROP TABLE IF EXISTS dbPTM.RelVotos;
+
+CREATE TABLE dbPTM.RelVotos(
+	id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT "Identificador del registro",
+	idUser INT(10) NOT NULL COMMENT "Identificador del usuario que voto",
+	idEvent INT(10) NOT NULL COMMENT "Identificador del evento",
+	createdDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT "Fecha de creación del registro",
+	lastUpdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT "Fecha de la última actualización",
+	KEY k_RelVotos_User_KEY(idUser),
+	KEY k_RelVotos_Event_KEY(idEvent),
+	CONSTRAINT fk_RelVotos_User FOREIGN KEY (idUser) REFERENCES dbPTM.User(idUser),
+	CONSTRAINT fk_RelVotos_Event FOREIGN KEY (idEvent) REFERENCES dbPTM.Event(idEvent)
+)DEFAULT CHARSET=utf8 COMMENT "Tabla de relacion de votos y usuarios";
 
 COMMIT;
