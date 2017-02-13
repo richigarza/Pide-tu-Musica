@@ -41,7 +41,7 @@
 		$("#prro").click(function(){
 			$("#myModal").modal({show: true, backdrop: 'static', keyboard: false});
 			$.ajax({
-				url: "BLL/index.php?action=lol",
+				url: "BLL/index.php?fn=lol",
 				datatype: "json",
 				type: "post",
 				success: function(response){
