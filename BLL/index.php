@@ -9,29 +9,32 @@
 	require('../DTO/Band.php');
 	require('../DTO/Venue.php');
 	require('../DTO/Event.php');
+	require("../BLL/User.php");
 
 	function test(){
 		return true;
 	} 
 
-	function lol(){
-		$user = new User('Ricardo', 'Garza', 'Richi', 'richi@conglom-osoft.net', 'Monterrey, MX', '19-02-2016', '19-02-2016', NULL);
-		$band = new Band('Metallica', 'Metal', '19-02-2016', '19-02-2016');	
-		$venue = new Venue('Estadio BBVA Bancomer', 'Guadalupe, MX', '19-02-2016', '19-02-2016');
-		$event = new Event('Metallica en Monterrey', $venue, $user, $band, '50000', '0', '19-02-2016', '19-02-2016');
+	function createUser(){
+		$user = new User('Ricardo', 'Garza', 'Richi', 'richi@conglom-osoft.net', 'Monterrey, MX', 2);
+		$User = new BLLUser();
+		$User->createUser($user);
 
-		$user->setPassword('la4705');
-		return $user->getPassword();
+		//$band = new Band('Metallica', 'Metal', '19-02-2016', '19-02-2016');	
+		//$venue = new Venue('Estadio BBVA Bancomer', 'Guadalupe, MX', '19-02-2016', '19-02-2016');
+		//$event = new Event('Metallica en Monterrey', $venue, $user, $band, '50000', '0', '19-02-2016', '19-02-2016');
+		//$user->setPassword('la4705');
+		//return $user->getPassword();
 	}
 
 	function main(){
-		$action = $_GET["action"];
-		switch($action){
+		$fn = $_GET["fn"];
+		switch($fn){
 			case "test":
 				$result["success"] = test();
 			break;
-			case "lol":
-				$result["success"] = lol();
+			case "newUser":
+				$result["success"] = createUser();
 			break;
 			default:
 				$result["success"] = false;
