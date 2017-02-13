@@ -16,6 +16,7 @@
 		private $createdDate;
 		private $lastUpdate;
 
+		/*
 		public function __construct($firstName, $lastName, $userName, $email, $location, $userType, $createdDate, $lastUpdate){
 			$this->firstName = $firstName;
 			$this->lastName = $lastName;
@@ -26,44 +27,54 @@
 			$this->createdDate = $createdDate;
 			$this->lastUpdate = $lastUpdate;
 		}
+		*/
 
-		function getUserName(){
+		public function __construct($firstName, $lastName, $userName, $email, $location, $userType){
+			$this->firstName = $firstName;
+			$this->lastName = $lastName;
+			$this->userName = $userName;
+			$this->email = $email;
+			$this->location = $location;
+			$this->userType = $userType;
+		}
+
+		public function getUserName(){
 			return $this->userName;
 		}
 
-		function getFirstName(){
+		public function getFirstName(){
 			return $this->firstName;
 		}
 
-		function getLastName(){
+		public function getLastName(){
 			return $this->lastName;
 		}
 
-		function getPassword(){
+		public function getPassword(){
 			return $this->password;
 		}
 
-		function setPassword($password){
+		public function setPassword($password){
 			$this->password = $password;
 		}
 
-		function getEmail(){
+		public function getEmail(){
 			return $this->email;
 		}
 
-		function getLocation(){
+		public function getLocation(){
 			return $this->location;
 		}
 
-		function getUserType(){
+		public function getUserType(){
 			return $this->userType;
 		}
 
-		function getCreatedDate(){
+		public function getCreatedDate(){
 			return $this->createdDate;
 		}
 
-		function getLastUpdate(){
+		public function getLastUpdate(){
 			return $this->lastUpdate;
 		}
 	}

@@ -11,7 +11,7 @@
 		private $createdDate;
 		private $lastUpdate;
 
-		public function __construct(){
+		public function __construct($bandName, $bandGenre, $createdDate, $lastUpdate){
 			$this->bandName = $bandName;
 			$this->bandGenre = $bandGenre;
 			$this->createdDate = $createdDate;

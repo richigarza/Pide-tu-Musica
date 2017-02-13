@@ -2,7 +2,7 @@
 /////////////////////////////
 // Event.php
 // Autor: Richi Garza
-// Fecha: 09-feb-2017
+// Fecha: 09git-feb-2017
 ////////////////////////////
 	class Event {
 		private $idEvent;
