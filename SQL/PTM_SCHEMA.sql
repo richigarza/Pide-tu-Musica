@@ -2,7 +2,8 @@
 -- Autor: Richi Garza
 -- Fecha: 09-feb-2017
 
-GRANT ALL PRIVILEGES ON *.* 'ptmUser'@'localhost' IDENTIFIED BY 'ptmUser' WITH GRANT OPTION;
+CREATE USER 'ptmUser'@'localhost' IDENTIFIED BY '123pormi';
+
 COMMIT;
 
 DROP DATABASE IF EXISTS dbPTM;
@@ -68,18 +69,18 @@ CREATE TABLE dbPTM.Event(
 )DEFAULT CHARSET=utf8 COMMENT "Tabla de Eventos";
 
 -- Tabla de Relacion de votos
-DROP TABLE IF EXISTS dbPTM.RelVotos;
+DROP TABLE IF EXISTS dbPTM.RelVotes;
 
-CREATE TABLE dbPTM.RelVotos(
+CREATE TABLE dbPTM.RelVotes(
 	id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT "Identificador del registro",
-	idUser INT(10) NOT NULL COMMENT "Identificador del usuario que voto",
 	idEvent INT(10) NOT NULL COMMENT "Identificador del evento",
+	idUser INT(10) NOT NULL COMMENT "Identificador del usuario que voto",	
 	createdDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT "Fecha de creación del registro",
 	lastUpdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT "Fecha de la última actualización",
-	KEY k_RelVotos_User_KEY(idUser),
 	KEY k_RelVotos_Event_KEY(idEvent),
-	CONSTRAINT fk_RelVotos_User FOREIGN KEY (idUser) REFERENCES dbPTM.User(idUser),
-	CONSTRAINT fk_RelVotos_Event FOREIGN KEY (idEvent) REFERENCES dbPTM.Event(idEvent)
+	KEY k_RelVotos_User_KEY(idUser),
+	CONSTRAINT fk_RelVotos_Event FOREIGN KEY (idEvent) REFERENCES dbPTM.Event(idEvent),
+	CONSTRAINT fk_RelVotos_User FOREIGN KEY (idUser) REFERENCES dbPTM.User(idUser)
 )DEFAULT CHARSET=utf8 COMMENT "Tabla de relacion de votos y usuarios";
 
 COMMIT;
